@@ -1,0 +1,55 @@
+﻿@using Ext.Net;
+@using Ext.Net.MVC;
+@using MvcApplication4.Entities;
+
+@model List<string>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@section Head
+{
+
+    <style>
+        .x-grid-row-over .x-grid-cell-inner {
+            font-weight : bold;
+        }
+    </style>
+
+    <script>
+        var template = '<span style="color:{0};">{1}</span>';
+
+        var change = function (value) {
+            return Ext.String.format(template, (value > 0) ? "green" : "red", value);
+        };
+
+        var pctChange = function (value) {
+            return Ext.String.format(template, (value > 0) ? "green" : "red", value + "%");
+        };
+    </script>  
+}
+<ext:ResourceManager runat="server" />
+
+  @Html.X().ResourceManager()
+
+ 
+     
+    @(Html.X().GridPanel()
+        .Title("Array Grid")
+        .Width(600)
+        .Height(350)
+        .Store(Html.X().Store()
+            .Model(Html.X().Model()
+                .Fields(
+                    new ModelField()                    
+                )
+            )
+            .DataSource(Model)
+        )
+        .ColumnModel(
+                    Html.X().Column().Text("USN").DataIndex().Flex(1)
+        )
+    )
+}
