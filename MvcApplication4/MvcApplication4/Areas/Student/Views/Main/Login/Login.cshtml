@@ -4,7 +4,6 @@
 
 
 
-
 @{
     ViewBag.Title = "Login";
 }
@@ -32,16 +31,14 @@
                     .BodyStyle("background-color:transparent;")
                     .Items(
                         Html.X().TextField()
-                            .ID("txtUsername")
-                            .ReadOnly(true)
+                            .ID("txtUsername")                            
                             .FieldLabel("Username")
                             .AllowBlank(false)
                             .BlankText("Your username is required.")
                             .Text("Demo"),
                     
                         Html.X().TextField()
-                            .ID("txtPassword")
-                            .ReadOnly(true)
+                            .ID("txtPassword")                            
                             .InputType(Ext.Net.InputType.Password)
                             .FieldLabel("Password")
                             .AllowBlank(false)
@@ -54,7 +51,7 @@
                    .Text("Login")
                    .Icon(Icon.Accept)
                    .DirectEvents(de => {
-                        de.Click.Action = "Details";
+                        de.Click.Action = "PasswordValidation";
                         de.Click.Success = "this.up('window').close();";
                         de.Click.EventMask.ShowMask = true;
                         de.Click.EventMask.Msg = "Verifying...";
