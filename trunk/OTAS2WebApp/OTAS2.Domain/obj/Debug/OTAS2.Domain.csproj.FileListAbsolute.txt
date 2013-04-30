@@ -2,3 +2,4 @@ Z:\OTAS\TRUNK\OTAS2WebApp\OTAS2.Domain\bin\Debug\OTAS2.Domain.dll
 Z:\OTAS\TRUNK\OTAS2WebApp\OTAS2.Domain\bin\Debug\OTAS2.Domain.pdb
 Z:\OTAS\TRUNK\OTAS2WebApp\OTAS2.Domain\obj\Debug\OTAS2.Domain.dll
 Z:\OTAS\TRUNK\OTAS2WebApp\OTAS2.Domain\obj\Debug\OTAS2.Domain.pdb
+Z:\OTAS\TRUNK\OTAS2WebApp\OTAS2.Domain\obj\Debug\OTAS2.Domain.csprojResolveAssemblyReference.cache

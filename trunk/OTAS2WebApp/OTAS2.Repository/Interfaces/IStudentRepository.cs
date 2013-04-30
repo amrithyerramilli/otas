@@ -8,6 +8,6 @@ namespace OTAS2.Repository.Interfaces
 {
     public interface IStudentRepository
     {
-        IList<Student> GetAllStudents();
+        IList<Students> GetAllStudents();
     }
 }

@@ -41,8 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\Student.cs" />
+    <Compile Include="Entities\Students.cs" />
     <Compile Include="Entities\SubComb.cs" />
+    <Compile Include="Entities\ValidS.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

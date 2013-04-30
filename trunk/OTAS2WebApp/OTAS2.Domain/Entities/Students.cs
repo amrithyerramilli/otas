@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace OTAS2.Domain.Entities
 {
-   public class Student
+   public class Students
    {
         [Key]
         public String USN { get; set; }

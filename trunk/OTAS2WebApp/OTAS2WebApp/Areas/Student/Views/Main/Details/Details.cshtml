@@ -1,4 +1,5 @@
-﻿@{
+﻿@model OTAS2.Domain.Entities.Students
+@{
     ViewBag.Title = "Details";
 }
 @section Head
@@ -90,7 +91,7 @@ border-right:1px double #FF0033;
         Contact Form :</h1>
     <label>
         <span>Full name</span>
-        <input type="text" class="input_text" name="name" id="name" />
+        <input type="text" class="input_text" name="name" id="name" value="@Model.Name" disabled="disabled" />        
     </label>
     <label>
         <span>Email</span>
