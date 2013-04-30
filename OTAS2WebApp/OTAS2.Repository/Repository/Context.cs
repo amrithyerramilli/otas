@@ -10,7 +10,8 @@ namespace OTAS2.Repository.Repository
 {
     public class Context : DbContext,IContext 
     {
-        public DbSet<Student> Students { get; set; }
+        public DbSet<Students> Students { get; set; }
+        public DbSet<ValidS> ValidS { get; set; }
         public Context()
             : base("Xerxes")
         {

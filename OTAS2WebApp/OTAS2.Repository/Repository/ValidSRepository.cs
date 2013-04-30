@@ -7,20 +7,20 @@ using OTAS2.Domain.Entities;
 
 namespace OTAS2.Repository.Repository
 {
-    public class StudentRepository : IStudentRepository
+    public class ValidSRepository : IValidSRepository
     {
         IContext context;
-        public StudentRepository()
+        public ValidSRepository()
             : this(new Context())
         {
         }
-        public StudentRepository(IContext context)
+        public ValidSRepository(IContext context)
         {
             this.context = context;
         }
-        public IList<Students> GetAllStudents()
+        public IList<ValidS> GetAllValidS()
         {
-            return context.Students.ToList();
+            return context.ValidS.ToList();
         }
     }
 }
