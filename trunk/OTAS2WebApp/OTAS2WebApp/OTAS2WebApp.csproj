@@ -136,6 +136,7 @@
   <ItemGroup>
     <Folder Include="Areas\Student\Models\" />
     <Folder Include="Models\" />
+    <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
