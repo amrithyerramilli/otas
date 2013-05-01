@@ -84,18 +84,6 @@ border-left:1px double #FF0033;
 border-right:1px double #FF0033;
 }
 </style>
-<script type="text/javascript">
-    function test() {
-        
-        var usn = document.getElementById("usn");
-        var url = '@Html.Raw(Url.Action("Summary","Main"))';
-        var stu = document.getElementById("studentDetails");
-
-        document.stu.action = url;
-        document.stu.submit();
-        alert("test");
-    }
-</script>
 }
 
 
@@ -105,7 +93,7 @@ border-right:1px double #FF0033;
         Contact Form :</h1>
     <label>
         <span>USN</span>
-        <input type="text" class="input_text" name="USN" id="USN" value="@Model.USN" disabled="disabled" />        
+        <input type="text" class="input_text" name="USN" id="USN" value="@Model.USN" readonly="readonly" />        
     </label>
 
      <label>
@@ -140,7 +128,7 @@ border-right:1px double #FF0033;
     </label>
     <label>
         
-        <input type="button" class="button" name="submit" id="submit" value="Continue" onclick="test()" />        
+        <input type="button" class="button" name="button" id="button" value="Continue" onclick="window.location.href='@Url.Action("Summary","Main")'" />        
     </label>
 </div>
 </form>

@@ -1,7 +1,0 @@
-Z:\OTAS\TRUNK\OTAS2WebApp\OTAS2.Repository\bin\Debug\OTAS2.Repository.dll
-Z:\OTAS\TRUNK\OTAS2WebApp\OTAS2.Repository\bin\Debug\OTAS2.Repository.pdb
-Z:\OTAS\TRUNK\OTAS2WebApp\OTAS2.Repository\obj\Debug\OTAS2.Repository.dll
-Z:\OTAS\TRUNK\OTAS2WebApp\OTAS2.Repository\obj\Debug\OTAS2.Repository.pdb
-Z:\OTAS\TRUNK\OTAS2WebApp\OTAS2.Repository\bin\Debug\OTAS2.Domain.dll
-Z:\OTAS\TRUNK\OTAS2WebApp\OTAS2.Repository\bin\Debug\OTAS2.Domain.pdb
-Z:\OTAS\TRUNK\OTAS2WebApp\OTAS2.Repository\obj\Debug\OTAS2.Repository.csprojResolveAssemblyReference.cache
