@@ -25,7 +25,7 @@ namespace OTAS2.MailApp
                             select new StudentPassword { USN = j.USN, Password = j.PassGen, Email = i.email.ToLower() }).ToList();
             Attachment picture = new Attachment("Appraisal.gif");
             //i = 1350;
-            for (int i = 1351; i < 1800; i++)
+            for (int i = 2250; i < studpass.Count; i++)
             {
                 MailAddress to;
                 if (studpass[i].Email != "")
@@ -47,14 +47,14 @@ namespace OTAS2.MailApp
                 mail.Subject = "RNSIT Appraisal";
 
                 Console.WriteLine("Your Message");
-                mail.Body = "hola amigo,\n Your Password for teachers appraisal is : " + studpass[i].Password + " , please note it down and arrive on May 2nd/May 3rd.\n Pass on this link to who ever hasn't provided us with their details the first time around https://docs.google.com/forms/d/1LSIUQKa9bgGx7E3TlkUhktkXP80rAPtcnRdu6ltIIrY/viewform \n Best,\n Aikya Dev Team";
+                mail.Body = "ನಮಸ್ಕಾರ,\n Your Password for teachers appraisal is : " + studpass[i].Password + " , please note it down and arrive on May 2nd/May 3rd.\n Pass on this link to who ever hasn't provided us with their details the first time around https://docs.google.com/forms/d/1LSIUQKa9bgGx7E3TlkUhktkXP80rAPtcnRdu6ltIIrY/viewform \n Best,\n Aikya Dev Team";
                 mail.Attachments.Add(picture);
                 SmtpClient smtp = new SmtpClient();
                 smtp.Host = "smtp.gmail.com";
                 smtp.Port = 587;
 
                 smtp.Credentials = new NetworkCredential(
-                    "anirudh.1rn09cs012@gmail.com", "9742245270");
+                    "anirudh.kkw@gmail.com", "wa3002-g1");
                 smtp.EnableSsl = true;
                 Console.WriteLine("Sending email...");
                 smtp.Send(mail);
