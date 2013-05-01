@@ -54,7 +54,7 @@ namespace OTAS2.MailApp
                 smtp.Port = 587;
 
                 smtp.Credentials = new NetworkCredential(
-                    "anirudh.kkw@gmail.com", "wa3002-g1");
+                    "", "");
                 smtp.EnableSsl = true;
                 Console.WriteLine("Sending email...");
                 smtp.Send(mail);
