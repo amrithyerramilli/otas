@@ -21,11 +21,13 @@ namespace OTAS2WebApp.Areas.Student.Controllers
 
         public ActionResult Details()
         {
-            ValidS USN = (ValidS)Session["student"];
+            ValidS user = (ValidS)Session["student"];
             StudentRepository students = new StudentRepository();
             Students loggedInStudent = (from i in students.GetAllStudents()
-                                        where i.USN == USN.USN
+                                        where i.USN == user.USN
                                         select i).ToList().FirstOrDefault();
+            var student = (from i in students.GetAllStudents()
+                           select i).ToList();
             return View("Details/Details", loggedInStudent);
                         
         }
