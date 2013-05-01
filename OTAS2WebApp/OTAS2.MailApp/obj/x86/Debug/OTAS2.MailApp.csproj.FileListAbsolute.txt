@@ -1,0 +1,10 @@
+Z:\OTAS\TRUNK\OTAS2WebApp\OTAS2.MailApp\bin\Debug\OTAS2.MailApp.exe
+Z:\OTAS\TRUNK\OTAS2WebApp\OTAS2.MailApp\bin\Debug\OTAS2.MailApp.pdb
+Z:\OTAS\TRUNK\OTAS2WebApp\OTAS2.MailApp\bin\Debug\OTAS2.Domain.dll
+Z:\OTAS\TRUNK\OTAS2WebApp\OTAS2.MailApp\bin\Debug\OTAS2.Repository.dll
+Z:\OTAS\TRUNK\OTAS2WebApp\OTAS2.MailApp\bin\Debug\OTAS2.Domain.pdb
+Z:\OTAS\TRUNK\OTAS2WebApp\OTAS2.MailApp\bin\Debug\OTAS2.Repository.pdb
+Z:\OTAS\TRUNK\OTAS2WebApp\OTAS2.MailApp\obj\x86\Debug\OTAS2.MailApp.csprojResolveAssemblyReference.cache
+Z:\OTAS\TRUNK\OTAS2WebApp\OTAS2.MailApp\obj\x86\Debug\OTAS2.MailApp.exe
+Z:\OTAS\TRUNK\OTAS2WebApp\OTAS2.MailApp\obj\x86\Debug\OTAS2.MailApp.pdb
+Z:\OTAS\TRUNK\OTAS2WebApp\OTAS2.MailApp\bin\Debug\OTAS2.MailApp.exe.config
