@@ -4,28 +4,143 @@
 }
 @section Head
 {
-<link rel="Stylesheet" href="
+    <style>
+*{ margin:0; padding:0;}
+body{ font:100% normal Arial, Helvetica, sans-serif; background:#031429;}
+form,input,select,textarea{margin:0; padding:0; color:#ffffff;}
+
+div.box {
+margin:0 auto;
+width:500px;
+background:#031429;
+position:relative;
+top:50px;
+border:1px solid #031429;
 }
-<form action="">
+
+div.box h1 { 
+color:#ffffff;
+font-size:18px;
+text-transform:uppercase;
+padding:5px 0 5px 5px;
+border-bottom:1px solid #031429;
+border-top:1px solid #031429; 
+}
+
+div.box label {
+width:100%;
+display: block;
+background:#031429;
+border-top:1px solid #031429;
+border-bottom:1px solid #031429;
+padding:10px 0 10px 0;
+}
+
+div.box label span {
+display: block;
+color:#bbbbbb;
+font-size:12px;
+float:left;
+width:100px;
+text-align:right;
+padding:5px 20px 0 0;
+}
+
+div.box .input_text {
+padding:10px 10px;
+width:200px;
+background:#262626;
+border-bottom: 1px double #171717;
+border-top: 1px double #171717;
+border-left:1px double #333333;
+border-right:1px double #333333;
+}
+
+div.box .message{
+padding:7px 7px;
+width:350px;
+background:#262626;
+border-bottom: 1px double #171717;
+border-top: 1px double #171717;
+border-left:1px double #333333;
+border-right:1px double #333333;
+overflow:hidden;
+height:150px;
+}
+
+div.box .button
+{
+margin:0 0 10px 0;
+padding:4px 7px;
+background:#CC0000;
+border:0px;
+position: relative;
+top:10px;
+left:382px;
+width:100px;
+border-bottom: 1px double #660000;
+border-top: 1px double #660000;
+border-left:1px double #FF0033;
+border-right:1px double #FF0033;
+}
+</style>
+<script type="text/javascript">
+    function test() {
+        
+        var usn = document.getElementById("usn");
+        var url = '@Html.Raw(Url.Action("Summary","Main"))';
+        var stu = document.getElementById("studentDetails");
+
+        document.stu.action = url;
+        document.stu.submit();
+        alert("test");
+    }
+</script>
+}
+
+
+<form name="studentDetails" id="studentDetails" method="post" enctype="multipart/form-data">
 <div class="box">
     <h1>
         Contact Form :</h1>
     <label>
-        <span>Full name</span>
-        <input type="text" class="input_text" name="name" id="name" value="@Model.Name" disabled="disabled" />        
+        <span>USN</span>
+        <input type="text" class="input_text" name="USN" id="USN" value="@Model.USN" disabled="disabled" />        
+    </label>
+
+     <label>
+        <span>NAME</span>
+        <input type="text" class="input_text" name="name" id="name" value="@Model.Name" />        
+    </label>
+
+    <label>
+        <span>Address</span>
+          
+        <textarea class="input_text" name="add" id="add" value="@Model.Address"> </textarea>
     </label>
     <label>
-        <span>Email</span>
-        <input type="text" class="input_text" name="email" id="email" />
+        <span>Phone No</span>
+        <input type="text" class="input_text" name="ph" id="ph" value="@Model.Phone" />        
     </label>
     <label>
-        <span>Subject</span>
-        <input type="text" class="input_text" name="subject" id="subject" />
+        <span>E-mail</span>
+        <input type="text" class="input_text" name="email" id="email" value="@Model.email" />        
     </label>
     <label>
-        <span>Message</span>
-        <textarea class="message" name="feedback" id="feedback"></textarea>
-        <input type="button" class="button" value="Submit Form" />
+        <span>Semester</span>
+        <input type="text" class="input_text" name="sem" id="sem" value="@Model.sem" />        
+    </label>
+    <label>
+        <span>Section</span>
+        <input type="text" class="input_text" name="sec" id="sec" value="@Model.Sec" />        
+    </label>
+    <label>
+        <span>Department</span>
+        <input type="text" class="input_text" name="dept" id="dept" value="@Model.DeptID" />        
+    </label>
+    <label>
+        
+        <input type="button" class="button" name="submit" id="submit" value="Continue" onclick="test()" />        
     </label>
 </div>
 </form>
