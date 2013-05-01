@@ -49,6 +49,12 @@ namespace OTAS2WebApp.Areas.Student.Controllers
             
             return RedirectToAction("Details");
         }
+        public ActionResult Summary(FormCollection studentDetails)
+        {
+           // var s = Request.Form["USN"];
+            var s = studentDetails["USN"];
+            return View();
+        }
 
     }
 }
