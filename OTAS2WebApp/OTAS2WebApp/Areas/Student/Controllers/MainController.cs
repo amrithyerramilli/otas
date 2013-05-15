@@ -49,12 +49,47 @@ namespace OTAS2WebApp.Areas.Student.Controllers
             
             return RedirectToAction("Details");
         }
+        [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult Summary(FormCollection form)
         {
-           // var s = Request.Form["USN"];
-            var s = form["name"];
+            IList<TeacherSummary> summary = new List<TeacherSummary>();
+            try
+            {
+                var USN = form["USN"];
+                var Sem = Convert.ToInt32(form["sem"]);
+                var Sec = form["sec"];
+                var DeptId = form["deptId"];
+                SubCompRepository subComb = new SubCompRepository();
+                SubjectRepository subjects = new SubjectRepository();
+                TeacherInfoRepository teachers = new TeacherInfoRepository();
+                summary = (from i in subComb.GetAllSubComb()
+                                                 join o in teachers.GetAllTeacherInfo()
+                                                 on
+                                                 i.TeacherID equals o.TeacherId
+                                                 join m in subjects.GetAllSubjects()
+                                                 on
+                                                 i.SubCode equals m.SubCode
+                                                 where
+                                                 i.sem == Sem
+                                                 where
+                                                 i.Section == Sec
+                                                 where
+                                                 i.DeptID == DeptId
+                                                 select new TeacherSummary { TeacherName = o.TeacherName, SubName = m.SubName, SubCode = m.SubCode,ComboId = i.CombID , StudentUSN = USN}).ToList();               
+            }
+            catch (Exception ex)
+            {
+                
+            }
+
+            return View("Details/Summary", summary);
+        }
+        public ActionResult Rating()
+        {
+            ValidS user = (ValidS)Session["student"];
             return View();
         }
+
 
     }
 }

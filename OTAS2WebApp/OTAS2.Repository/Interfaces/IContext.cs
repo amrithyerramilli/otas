@@ -11,6 +11,10 @@ namespace OTAS2.Repository.Interfaces
     public interface IContext
     {
         DbSet<Students> Students { get; set; }
-        DbSet<ValidS> ValidS { get; set; }         
+        DbSet<ValidS> ValidS { get; set; }
+        DbSet<Subject> Subjects { get; set; }
+        DbSet<SubComb> SubComb { get; set; }
+        DbSet<TeacherInfo> TeacherInfo { get; set; }
+
     }
 }

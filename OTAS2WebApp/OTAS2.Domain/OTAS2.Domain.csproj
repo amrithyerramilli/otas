@@ -31,6 +31,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Microsoft ADO.NET Entity Framework 4.1\Binaries\EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -44,6 +48,9 @@
     <Compile Include="Entities\StudentPassword.cs" />
     <Compile Include="Entities\Students.cs" />
     <Compile Include="Entities\SubComb.cs" />
+    <Compile Include="Entities\Subject.cs" />
+    <Compile Include="Entities\TeacherInfo.cs" />
+    <Compile Include="Entities\TeacherSummary.cs" />
     <Compile Include="Entities\ValidS.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
