@@ -47,10 +47,16 @@
   <ItemGroup>
     <Compile Include="Interfaces\IContext.cs" />
     <Compile Include="Interfaces\IStudentRepository.cs" />
+    <Compile Include="Interfaces\ISubCombRepository.cs" />
+    <Compile Include="Interfaces\ISubjectRepository.cs" />
+    <Compile Include="Interfaces\ITeacherInfoRepository.cs" />
     <Compile Include="Interfaces\IValidSRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\Context.cs" />
     <Compile Include="Repository\StudentRepository.cs" />
+    <Compile Include="Repository\SubCompRepository.cs" />
+    <Compile Include="Repository\SubjectRepository.cs" />
+    <Compile Include="Repository\TeacherInfoRepository.cs" />
     <Compile Include="Repository\ValidSRepository.cs" />
   </ItemGroup>
   <ItemGroup />

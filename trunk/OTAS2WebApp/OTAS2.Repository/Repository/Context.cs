@@ -12,6 +12,9 @@ namespace OTAS2.Repository.Repository
     {
         public DbSet<Students> Students { get; set; }
         public DbSet<ValidS> ValidS { get; set; }
+        public DbSet<Subject> Subjects { get; set; }
+        public DbSet<SubComb> SubComb { get; set; }
+        public DbSet<TeacherInfo> TeacherInfo { get; set; }
         public Context()
             : base("Xerxes")
         {

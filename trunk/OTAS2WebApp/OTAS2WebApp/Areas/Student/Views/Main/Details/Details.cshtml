@@ -4,6 +4,14 @@
 }
 @section Head
 {
+<script type="text/javascript">
+    function Redirect() {
+        var url = '@Html.Raw(Url.Action("Summary", "Main"))';
+
+        document.studentDetails.action = url;
+        document.studentDetails.submit();
+    }
+</script>
     <style>
 *{ margin:0; padding:0;}
 body{ font:100% normal Arial, Helvetica, sans-serif; background:#031429;}
@@ -97,7 +105,7 @@ border-right:1px double #FF0033;
     </label>
 
      <label>
-        <span>NAME</span>
+        <span>Name</span>
         <input type="text" class="input_text" name="name" id="name" value="@Model.Name" />        
     </label>
 
@@ -124,11 +132,11 @@ border-right:1px double #FF0033;
     </label>
     <label>
         <span>Department</span>
-        <input type="text" class="input_text" name="dept" id="dept" value="@Model.DeptID" />        
+        <input type="text" class="input_text" name="deptId" id="deptId" value="@Model.DeptID" />        
     </label>
     <label>
         
-        <input type="button" class="button" name="button" id="button" value="Continue" onclick="window.location.href='@Url.Action("Summary","Main")'" />        
+        <input type="button" name="button" id="button" value="Continue" onclick="Redirect()"/>        
     </label>
 </div>
 </form>
