@@ -134,8 +134,21 @@ border-right:1px double #FF0033;
         <span>Department</span>
         <input type="text" class="input_text" name="deptId" id="deptId" value="@Model.DeptID" />        
     </label>
-    <label>
-        
+    @if(Model.Elective1Name != null)
+    {
+        <label>
+            <span>Elective 1</span>
+            <input type="text" class="input_text" name="elec1Id" id="elec1Name" value="@Model.Elective1Name" />        
+        </label>
+    }
+    @if(Model.Elective2Name != null)
+    {
+        <label>
+            <span>Elective 2</span>
+            <input type="text" class="input_text" name="elec2Id" id="elec2Name" value="@Model.Elective2Name" />        
+        </label>
+    }
+    <label>        
         <input type="button" name="button" id="button" value="Continue" onclick="Redirect()" class="submitButton"/>        
     </label>
 </div>
