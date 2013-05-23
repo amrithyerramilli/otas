@@ -87,7 +87,7 @@ namespace OTAS2WebApp.Areas.Student.Controllers
         public ActionResult Rating()
         {
             ValidS user = (ValidS)Session["student"];
-            return View();
+            return View("Ratings/Rating");
         }
 
 
