@@ -23,11 +23,25 @@ namespace OTAS2WebApp.Areas.Student.Controllers
         {
             ValidS user = (ValidS)Session["student"];
             StudentRepository students = new StudentRepository();
+            SubjectRepository subjects = new SubjectRepository();
             Students loggedInStudent = (from i in students.GetAllStudents()
                                         where i.USN == user.USN
-                                        select i).ToList().FirstOrDefault();
-            var student = (from i in students.GetAllStudents()
-                           select i).ToList();
+                                        select i).ToList().FirstOrDefault();            
+            if (loggedInStudent.Elective1.Count() > 0)
+            {
+                
+                loggedInStudent.Elective1Name = (from i in subjects.GetAllSubjects()
+                                                 where i.SubCode == loggedInStudent.Elective1
+                                                 select i.SubName).ToList().FirstOrDefault();
+                Session["Elective1Id"] = loggedInStudent.Elective1;
+            }
+            if (loggedInStudent.Elective2.Count() > 0)
+            {
+                loggedInStudent.Elective2Name = (from i in subjects.GetAllSubjects()
+                                                 where i.SubCode == loggedInStudent.Elective2
+                                                 select i.SubName).ToList().FirstOrDefault();
+                Session["Elective2Id"] = loggedInStudent.Elective2;
+            }
             return View("Details/Details", loggedInStudent);
                         
         }
@@ -46,6 +60,12 @@ namespace OTAS2WebApp.Areas.Student.Controllers
                 return View("Login/Incorrect");
             }
             Session["student"] = stud.FirstOrDefault();
+            Session["counter"] = stud.FirstOrDefault().Counter;
+            // If student already given feedback, send them to thank you page.
+            if (stud[0].StudentDetails == true)
+            {
+                return View();
+            }
             
             return RedirectToAction("Details");
         }
@@ -55,10 +75,12 @@ namespace OTAS2WebApp.Areas.Student.Controllers
             IList<TeacherSummary> summary = new List<TeacherSummary>();
             try
             {
-                var USN = form["USN"];
-                var Sem = Convert.ToInt32(form["sem"]);
-                var Sec = form["sec"];
-                var DeptId = form["deptId"];
+                var usn = form["USN"];
+                var sem = Convert.ToInt32(form["sem"]);
+                var sec = form["sec"];
+                var deptId = form["deptId"];
+                string elec1Id = Session["Elective1Id"].ToString();
+                string elec2Id = Session["Elective2Id"].ToString();
                 SubCompRepository subComb = new SubCompRepository();
                 SubjectRepository subjects = new SubjectRepository();
                 TeacherInfoRepository teachers = new TeacherInfoRepository();
@@ -70,12 +92,41 @@ namespace OTAS2WebApp.Areas.Student.Controllers
                                                  on
                                                  i.SubCode equals m.SubCode
                                                  where
-                                                 i.sem == Sem
+                                                 i.sem == sem
                                                  where
-                                                 i.Section == Sec
+                                                 i.Section == sec
                                                  where
-                                                 i.DeptID == DeptId
-                                                 select new TeacherSummary { TeacherName = o.TeacherName, SubName = m.SubName, SubCode = m.SubCode,ComboId = i.CombID , StudentUSN = USN}).ToList();               
+                                                 i.DeptID == deptId
+                                                 where
+                                                 i.elective == false
+                                                 select new TeacherSummary { TeacherName = o.TeacherName, SubName = m.SubName, SubCode = m.SubCode,ComboId = i.CombID , StudentUSN = usn}).ToList();
+                if (elec1Id != null)
+                {
+                    summary.Add((from i in subComb.GetAllSubComb()
+                                 join o in teachers.GetAllTeacherInfo()
+                                 on
+                                 i.TeacherID equals o.TeacherId
+                                 join m in subjects.GetAllSubjects()
+                                 on
+                                 i.SubCode equals m.SubCode
+                                 where
+                                 i.SubCode == elec1Id
+                                 select new TeacherSummary { TeacherName = o.TeacherName, SubName = m.SubName, SubCode = m.SubCode, ComboId = i.CombID, StudentUSN = usn }).ToList().FirstOrDefault());
+                }
+                if (elec2Id != null)
+                {
+                    summary.Add((from i in subComb.GetAllSubComb()
+                                 join o in teachers.GetAllTeacherInfo()
+                                 on
+                                 i.TeacherID equals o.TeacherId
+                                 join m in subjects.GetAllSubjects()
+                                 on
+                                 i.SubCode equals m.SubCode
+                                 where
+                                 i.SubCode == elec2Id
+                                 select new TeacherSummary { TeacherName = o.TeacherName, SubName = m.SubName, SubCode = m.SubCode, ComboId = i.CombID, StudentUSN = usn }).ToList().FirstOrDefault());
+                }
+                Session["summary"] = summary;
             }
             catch (Exception ex)
             {
@@ -84,10 +135,13 @@ namespace OTAS2WebApp.Areas.Student.Controllers
 
             return View("Details/Summary", summary);
         }
-        public ActionResult Rating()
+        public ActionResult RedirectRating()
         {
-            ValidS user = (ValidS)Session["student"];
-            return View("Ratings/Rating");
+            List<TeacherSummary> summary = (List<TeacherSummary>)Session["summary"];
+            ValidS student = (ValidS)Session["student"];
+            int? counter = student.Counter;
+
+            return View("Rating/Rating");
         }
 
 
