@@ -7,9 +7,15 @@
 
 }
 
-<h2>Summary</h2>
-<table border="1">
-    <tr>
+
+<br />
+<br /> 
+<div style="position:relative;" >
+
+<div style="width:10%; float:left"> &nbsp; </div>
+<div style="width:80%; float:left"> 
+<table class="CSSTableGenerator"   width="100%">
+    <tr  >
         <th>
             Teacher Name
         </th>
@@ -20,10 +26,12 @@
             Subject Name
         </th>        
     </tr>    
-@foreach (var i in Model)
+    @{ 
+ foreach (var i in Model)
 {
-    <tr>
-        <td>
+
+       <tr>
+        <td >
             @i.TeacherName
         </td>
         <td>
@@ -33,7 +41,19 @@
             @i.SubName
         </td>
     </tr>
-    
+        
+}
+
 }
 </table>
-<button value="Continue" id = "Rating" name = "Rating" onclick="window.location.href='@Url.Action("Rating","Main")'" />
+</div>
+@*<div style="width:10%; float:left"> &nbsp;</div>*@
+<div class="clear">&nbsp;</div>
+</div>
+<br />
+<div class="clear">&nbsp;</div>
+<div style="width:100%;" align="center" >
+<input class="submitButton" type=button value="Continue" id="Rating" name = "Rating" onclick="window.location.href='@Url.Action("Rating","Main")'" />
+
+@*<button value="Continue" id = "Rating" name = "Rating" onclick="window.location.href='@Url.Action("Rating","Main")'" />*@
+</div>
