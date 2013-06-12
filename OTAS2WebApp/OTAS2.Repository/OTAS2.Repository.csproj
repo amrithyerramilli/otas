@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Interfaces\IContext.cs" />
+    <Compile Include="Interfaces\IRID_TABLERepository.cs" />
     <Compile Include="Interfaces\IStudentRepository.cs" />
     <Compile Include="Interfaces\ISubCombRepository.cs" />
     <Compile Include="Interfaces\ISubjectRepository.cs" />
@@ -53,6 +54,7 @@
     <Compile Include="Interfaces\IValidSRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\Context.cs" />
+    <Compile Include="Repository\RID_TABLERepository.cs" />
     <Compile Include="Repository\StudentRepository.cs" />
     <Compile Include="Repository\SubCompRepository.cs" />
     <Compile Include="Repository\SubjectRepository.cs" />
