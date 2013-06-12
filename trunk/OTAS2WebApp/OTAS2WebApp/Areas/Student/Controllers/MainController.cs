@@ -26,21 +26,27 @@ namespace OTAS2WebApp.Areas.Student.Controllers
             SubjectRepository subjects = new SubjectRepository();
             Students loggedInStudent = (from i in students.GetAllStudents()
                                         where i.USN == user.USN
-                                        select i).ToList().FirstOrDefault();            
-            if (loggedInStudent.Elective1.Count() > 0)
+                                        select i).ToList().FirstOrDefault();
+            if (loggedInStudent.Elective1 != null)
             {
-                
-                loggedInStudent.Elective1Name = (from i in subjects.GetAllSubjects()
-                                                 where i.SubCode == loggedInStudent.Elective1
-                                                 select i.SubName).ToList().FirstOrDefault();
-                Session["Elective1Id"] = loggedInStudent.Elective1;
+                if (loggedInStudent.Elective1.Count() > 0)
+                {
+
+                    loggedInStudent.Elective1Name = (from i in subjects.GetAllSubjects()
+                                                     where i.SubCode == loggedInStudent.Elective1
+                                                     select i.SubName).ToList().FirstOrDefault();
+                    Session["Elective1Id"] = loggedInStudent.Elective1;
+                }
             }
-            if (loggedInStudent.Elective2.Count() > 0)
+            if (loggedInStudent.Elective2 != null)
             {
-                loggedInStudent.Elective2Name = (from i in subjects.GetAllSubjects()
-                                                 where i.SubCode == loggedInStudent.Elective2
-                                                 select i.SubName).ToList().FirstOrDefault();
-                Session["Elective2Id"] = loggedInStudent.Elective2;
+                if (loggedInStudent.Elective2.Count() > 0)
+                {
+                    loggedInStudent.Elective2Name = (from i in subjects.GetAllSubjects()
+                                                     where i.SubCode == loggedInStudent.Elective2
+                                                     select i.SubName).ToList().FirstOrDefault();
+                    Session["Elective2Id"] = loggedInStudent.Elective2;
+                }
             }
             return View("Details/Details", loggedInStudent);
                         
