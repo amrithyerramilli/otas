@@ -15,6 +15,6 @@ namespace OTAS2.Repository.Interfaces
         DbSet<Subject> Subjects { get; set; }
         DbSet<SubComb> SubComb { get; set; }
         DbSet<TeacherInfo> TeacherInfo { get; set; }
-
+        DbSet<RID_TABLE> RID_TABLE { get; set; }
     }
 }

@@ -34,10 +34,9 @@ namespace OTAS2WebApp.Areas.Student.Controllers
 
                     loggedInStudent.Elective1Name = (from i in subjects.GetAllSubjects()
                                                      where i.SubCode == loggedInStudent.Elective1
-                                                     select i.SubName).ToList().FirstOrDefault();
-                    Session["Elective1Id"] = loggedInStudent.Elective1;
+                                                     select i.SubName).ToList().FirstOrDefault();                    
                 }
-            }
+            }            
             if (loggedInStudent.Elective2 != null)
             {
                 if (loggedInStudent.Elective2.Count() > 0)
@@ -47,7 +46,8 @@ namespace OTAS2WebApp.Areas.Student.Controllers
                                                      select i.SubName).ToList().FirstOrDefault();
                     Session["Elective2Id"] = loggedInStudent.Elective2;
                 }
-            }
+            }            
+            Session["loggedInStudent"] = loggedInStudent;            
             return View("Details/Details", loggedInStudent);
                         
         }
@@ -68,7 +68,7 @@ namespace OTAS2WebApp.Areas.Student.Controllers
             Session["student"] = stud.FirstOrDefault();
             Session["counter"] = stud.FirstOrDefault().Counter;
             // If student already given feedback, send them to thank you page.
-            if (stud[0].StudentDetails == true)
+            if (stud[0].FG == true)
             {
                 return View();
             }
@@ -85,8 +85,14 @@ namespace OTAS2WebApp.Areas.Student.Controllers
                 var sem = Convert.ToInt32(form["sem"]);
                 var sec = form["sec"];
                 var deptId = form["deptId"];
-                string elec1Id = Session["Elective1Id"].ToString();
-                string elec2Id = Session["Elective2Id"].ToString();
+                Students loggedInStudent = (Students)Session["loggedInStudent"];
+                string elec1Id = null;
+                string elec2Id = null;
+                if(loggedInStudent.Elective1 != null)
+                    elec1Id = loggedInStudent.Elective1;
+                if(loggedInStudent.Elective2 != null)
+                    elec2Id = loggedInStudent.Elective2;
+                
                 SubCompRepository subComb = new SubCompRepository();
                 SubjectRepository subjects = new SubjectRepository();
                 TeacherInfoRepository teachers = new TeacherInfoRepository();
@@ -146,10 +152,27 @@ namespace OTAS2WebApp.Areas.Student.Controllers
             List<TeacherSummary> summary = (List<TeacherSummary>)Session["summary"];
             ValidS student = (ValidS)Session["student"];
             int? counter = student.Counter;
-
-            return View("Rating/Rating");
+            if (counter == null)
+            {
+                throw new Exception("Database error");
+            }
+            // Send user to thank you page if counter is equal to the count of subjects given feedback for
+            if (counter != null)
+            {
+                if (summary.Count == counter)
+                {
+                    return View("");
+                }
+            }
+            return View("Ratings/Rating",summary[counter.Value]);
         }
-
+        public ActionResult Rating(FormCollection form)
+        {
+            RID_TABLE teacher = new RID_TABLE();
+            RID_TABLERepository RID_TABLE = new RID_TABLERepository();
+            RID_TABLE.InsertRecord(teacher);
+            return View();
+        }
 
     }
 }
