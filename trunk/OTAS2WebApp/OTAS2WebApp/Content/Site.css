@@ -101,101 +101,7 @@ form,input,select,textarea
 	
 }
 
-.CSSTableGenerator {
-	margin:0px;padding:0px;
-	width:100%;
-	
-	border:1px solid #000000;
-	
-	-moz-border-radius-bottomleft:0px;
-	-webkit-border-bottom-left-radius:0px;
-	border-bottom-left-radius:0px;
-	
-	-moz-border-radius-bottomright:0px;
-	-webkit-border-bottom-right-radius:0px;
-	border-bottom-right-radius:0px;
-	
-	-moz-border-radius-topright:0px;
-	-webkit-border-top-right-radius:0px;
-	border-top-right-radius:0px;
-	
-	-moz-border-radius-topleft:0px;
-	-webkit-border-top-left-radius:0px;
-	border-top-left-radius:0px;
-}.CSSTableGenerator table{
-	width:100%;
-	height:100%;
-	margin:0px;padding:3px;
-}.CSSTableGenerator tr:last-child td:last-child {
-	-moz-border-radius-bottomright:0px;
-	-webkit-border-bottom-right-radius:0px;
-	border-bottom-right-radius:0px;
-}
-.CSSTableGenerator table tr:first-child td:first-child {
-	-moz-border-radius-topleft:0px;
-	-webkit-border-top-left-radius:0px;
-	border-top-left-radius:0px;
-}
-.CSSTableGenerator table tr:first-child td:last-child {
-	-moz-border-radius-topright:0px;
-	-webkit-border-top-right-radius:0px;
-	border-top-right-radius:0px;
-}.CSSTableGenerator tr:last-child td:first-child{
-	-moz-border-radius-bottomleft:0px;
-	-webkit-border-bottom-left-radius:0px;
-	border-bottom-left-radius:0px;
-}.CSSTableGenerator tr:hover td{
-	background-color:#d3e9ff;
-		
 
-}
-.CSSTableGenerator td{
-	vertical-align:middle;
-	
-	background-color:#ffffff;
-
-	border:1px solid #000000;
-	border-width:0px 1px 1px 0px;
-	text-align:left;
-	padding:7px;
-	font-size:12pt;
-	font-family:Arial;
-	font-weight:normal;
-	color:#000000;
-}.CSSTableGenerator tr:last-child td{
-	border-width:0px 1px 0px 0px;
-}.CSSTableGenerator tr td:last-child{
-	border-width:0px 0px 1px 0px;
-}.CSSTableGenerator tr:last-child td:last-child{
-	border-width:0px 0px 0px 0px;
-}
-.CSSTableGenerator tr:first-child td{
-		background:-o-linear-gradient(bottom, #0057af 5%, #007fff 100%);	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #0057af), color-stop(1, #007fff) );
-	background:-moz-linear-gradient( center top, #0057af 5%, #007fff 100% );
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#0057af", endColorstr="#007fff");	background: -o-linear-gradient(top,#0057af,007fff);
-
-	background-color:#0057af;
-	border:0px solid #000000;
-	text-align:center;
-	border-width:0px 0px 1px 1px;
-	font-size:14px;
-	font-family:Georgia;
-	font-weight:bold;
-	color:#ffffff;
-}
-.CSSTableGenerator tr:first-child:hover td{
-	background:-o-linear-gradient(bottom, #0057af 5%, #007fff 100%);	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #0057af), color-stop(1, #007fff) );
-	background:-moz-linear-gradient( center top, #0057af 5%, #007fff 100% );
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#0057af", endColorstr="#007fff");	background: -o-linear-gradient(top,#0057af,007fff);
-
-	background-color:#0057af;
-}
-.CSSTableGenerator tr:first-child td:first-child{
-	border-width:0px 0px 1px 0px;
-}
-.CSSTableGenerator tr:first-child td:last-child{
-	border-width:0px 0px 1px 1px;
-}
 th
 {
     text-align: center;
@@ -204,10 +110,11 @@ th
     padding:10px 10px;
 
 background:#7996B2;
-border-bottom: 1px double white;
+/*border-bottom: 1px double white;
 border-top: 1px double #171717;
 border-left:1px double #333333;
 border-right:1px double #333333;
+*/
 }
 .even
 {
@@ -252,11 +159,11 @@ td
     padding:10px 10px;
 
 background:#262626;
-border-bottom: 1px double #171717;
+/*border-bottom: 1px double #171717;
 border-top: 1px double #171717;
 border-left:1px double #333333;
-border-right:1px double #333333;
-}*/
+border-right:1px double #333333;*/
+}
 .dataset {
 	text-align: center;
 	
@@ -266,7 +173,7 @@ margin:0 auto;
 width:500px;
 background:#031429;
 position:relative;
-top:50px;
+
 border:1px solid #031429;
 }
 
@@ -335,3 +242,22 @@ border-top: 1px double #660000;
 border-left:1px double #FF0033;
 border-right:1px double #FF0033;
 }
+
+.radio
+{
+    display:block;
+    background:#262626;
+    color:white;
+}
+
+.Odd
+{
+    background:#031429;
+    border-bottom:"1px white";
+    width:100%;
+    
+}
+hr
+{
+    background-color:#031429;
+    color:#031429;

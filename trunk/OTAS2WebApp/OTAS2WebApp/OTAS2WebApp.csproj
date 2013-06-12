@@ -369,7 +369,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Student\Models\" />
-    <Folder Include="Areas\Student\Views\Main\Ratings\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

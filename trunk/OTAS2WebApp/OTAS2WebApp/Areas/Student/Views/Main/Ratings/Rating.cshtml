@@ -1,9 +1,127 @@
-﻿@{
+﻿@using Ext.Net;
+@using Ext.Net.MVC;
+
+@{
     ViewBag.Title = "Rating";
 }
 
 @section Head
 {
 
+   <script type="text/javascript">
+   var sel;
+
+   function getVals()
+{
+       
+       sel=$("input[type='radio'][name='q1']:checked").val();
+//        sel[1]=$("input[type='radio'][name='q2']:checked").val();
+//        sel[2]=$("input[type='radio'][name='q3']:checked").val();
+//        sel[3]=$("input[type='radio'][name='q4']:checked").val();
+//        sel[4]=$("input[type='radio'][name='q5']:checked").val();
+//         sel[5]=$("input[type='radio'][name='q6']:checked").val();
+//         sel[6]=$("input[type='radio'][name='q7']:checked").val();
+//         sel[7]=$("input[type='radio'][name='q8']:checked").val();
+//         sel[8]=$("input[type='radio'][name='q9']:checked").val();
+//        sel[9]=$("input[type='radio'][name='q10']:checked").val();
+  }
+   </script>
+ 
 }
+
 <h2>Rating</h2>
+<form action="">
+
+<div class="Odd">
+
+<div >
+
+<label class="Odd">Question1</label>
+    <label class="radio"><input type="radio" id="a1" name="q1" value="A" />Option A</label><br />
+    <label class="radio"><input type="radio" id="a2" name="q1" value="B" />Option B</label><br />
+    <label class="radio"><input type="radio" id="a3" name="q1" value="C" />Option C</label><br />
+    <label class="radio"><input type="radio" id="a4" name="q1" value="D" />Option D</label><br />
+    
+</div><hr/>
+
+<div >
+<label class="Odd">Question1</label>
+    <label class="radio"><input type="radio" id="a5" name="q2" value="A" />Option A</label><br />
+    <label class="radio"><input type="radio" id="a6" name="q2" value="B" />Option B</label><br />
+    <label class="radio"><input type="radio" id="a7" name="q2" value="C" />Option C</label><br />
+    <label class="radio"><input type="radio" id="a8" name="q2" value="D" />Option D</label><br />
+    
+</div><hr/>
+
+<div >
+<label class="Odd">Question1</label>
+    <label class="radio"><input type="radio" id="a9" name="q3" value="A" />Option A</label><br />
+    <label class="radio"><input type="radio" id="a10" name="q3" value="B" />Option B</label><br />
+    <label class="radio"><input type="radio" id="a11" name="q3" value="C" />Option C</label><br />
+    <label class="radio"><input type="radio" id="a12" name="q3" value="D" />Option D</label><br />
+    
+</div><hr/>
+
+<div >
+<label class="Odd">Question1</label>
+    <label class="radio"><input type="radio" id="a13" name="q4" value="A" />Option A</label><br />
+    <label class="radio"><input type="radio" id="a14" name="q4" value="B" />Option B</label><br />
+    <label class="radio"><input type="radio" id="a15" name="q4" value="C" />Option C</label><br />
+    <label class="radio"><input type="radio" id="a16" name="q4" value="D" />Option D</label><br />
+    
+</div><hr/>
+
+<div >
+<label class="Odd">Question1</label>
+    <label class="radio"><input type="radio" id="a17" name="q5" value="A" />Option A</label><br />
+    <label class="radio"><input type="radio" id="a18 name="q5" value="B" />Option B</label><br />
+    <label class="radio"><input type="radio" id="a19" name="q5" value="C" />Option C</label><br />
+    <label class="radio"><input type="radio" id="a20" name="q5" value="D" />Option D</label><br />
+    
+</div><hr/>
+<div >
+<label class="Odd">Question1</label>
+    <label class="radio"><input type="radio" id="a21" name="q6" value="A" />Option A</label><br />
+    <label class="radio"><input type="radio" id="a22" name="q6" value="B" />Option B</label><br />
+    <label class="radio"><input type="radio" id="a23" name="q6" value="C" />Option C</label><br />
+    <label class="radio"><input type="radio" id="a24" name="q6" value="D" />Option D</label><br />
+    
+</div><hr/>
+<div >
+<label class="Odd">Question1</label>
+    <label class="radio"><input type="radio" id="a25" name="q7" value="A" />Option A</label><br />
+    <label class="radio"><input type="radio" id="a26" name="q7" value="B" />Option B</label><br />
+    <label class="radio"><input type="radio" id="a27" name="q7" value="C" />Option C</label><br />
+    <label class="radio"><input type="radio" id="a28" name="q7" value="D" />Option D</label><br />
+    
+</div><hr/>
+<div >
+<label class="Odd">Question1</label>
+    <label class="radio"><input type="radio" id="a29" name="q8" value="A" />Option A</label><br />
+    <label class="radio"><input type="radio" id="a30" name="q8" value="B" />Option B</label><br />
+    <label class="radio"><input type="radio" id="a31" name="q8" value="C" />Option C</label><br />
+    <label class="radio"><input type="radio" id="a32" name="q8" value="D" />Option D</label><br />
+    
+</div><hr/>
+<div >
+<label class="Odd">Question1</label>
+    <label class="radio"><input type="radio" id="a33" name="q9" value="A" />Option A</label><br />
+    <label class="radio"><input type="radio" id="a34" name="q9" value="B" />Option B</label><br />
+    <label class="radio"><input type="radio" id="a35" name="q9" value="C" />Option C</label><br />
+    <label class="radio"><input type="radio" id="a36" name="q9" value="D" />Option D</label><br />
+    
+</div><hr/>
+<div >
+<label class="Odd">Question1</label>
+    <label class="radio"><input type="radio" id="a37" name="q10" value="A" />Option A</label><br />
+    <label class="radio"><input type="radio" id="a38" name="q10" value="B" />Option B</label><br />
+    <label class="radio"><input type="radio" id="a39" name="q10" value="C" />Option C</label><br />
+    <label class="radio"><input type="radio" id="a40" name="q10" value="D" />Option D</label><br />
+    
+</div>
+<div >
+<input type="button" onclick="getVals();" id="send" value="ok" />
+</div>
+
+</div>
+</form>
