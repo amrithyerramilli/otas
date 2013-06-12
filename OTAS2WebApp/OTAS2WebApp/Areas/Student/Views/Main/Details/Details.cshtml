@@ -1,7 +1,9 @@
 ﻿@model OTAS2.Domain.Entities.Students
+
 @{
     ViewBag.Title = "Details";
 }
+
 @section Head
 {
 <script type="text/javascript">
@@ -12,93 +14,16 @@
         document.studentDetails.submit();
     }
 </script>
-  @*  <style>
-*{ margin:0; padding:0;}
-body{ font:100% normal Arial, Helvetica, sans-serif; background:#031429;}
-form,input,select,textarea{margin:0; padding:0; color:#ffffff;}
-
-div.box {
-margin:0 auto;
-width:500px;
-background:#031429;
-position:relative;
-top:50px;
-border:1px solid #031429;
+ 
 }
 
-div.box h1 { 
-color:#ffffff;
-font-size:18px;
-text-transform:uppercase;
-padding:5px 0 5px 5px;
-border-bottom:1px solid #031429;
-border-top:1px solid #031429; 
-}
-
-div.box label {
-width:100%;
-display: block;
-background:#031429;
-border-top:1px solid #031429;
-border-bottom:1px solid #031429;
-padding:10px 0 10px 0;
-}
-
-div.box label span {
-display: block;
-color:#bbbbbb;
-font-size:12px;
-float:left;
-width:100px;
-text-align:right;
-padding:5px 20px 0 0;
-}
-
-div.box .input_text {
-padding:10px 10px;
-width:200px;
-background:#262626;
-border-bottom: 1px double #171717;
-border-top: 1px double #171717;
-border-left:1px double #333333;
-border-right:1px double #333333;
-}
-
-div.box .message{
-padding:7px 7px;
-width:350px;
-background:#262626;
-border-bottom: 1px double #171717;
-border-top: 1px double #171717;
-border-left:1px double #333333;
-border-right:1px double #333333;
-overflow:hidden;
-height:150px;
-}
-
-div.box .button
-{
-margin:0 0 10px 0;
-padding:4px 7px;
-background:#CC0000;
-border:0px;
-position: relative;
-top:10px;
-left:382px;
-width:100px;
-border-bottom: 1px double #660000;
-border-top: 1px double #660000;
-border-left:1px double #FF0033;
-border-right:1px double #FF0033;
-}
-</style>*@
-}
-
-
+<h1 style="color:White"> Verify your details :</h1>
+<div class="clearfloat">&nbsp;</div>
+<br /><br />
 <form action = "" name="studentDetails" id="studentDetails" method="post" enctype="multipart/form-data">
-<div class="box">
-    <h1>
-        Contact Form :</h1>
+
+<div class="box fltlft">
+    
     <label>
         <span>USN</span>
         <input type="text" class="input_text" name="USN" id="USN" value="@Model.USN" readonly="readonly" />        
@@ -122,6 +47,10 @@ border-right:1px double #FF0033;
         <span>E-mail</span>
         <input type="text" class="input_text" name="email" id="email" value="@Model.email" />        
     </label>
+</div>
+
+<div class="box fltlft">
+    
     <label>
         <span>Semester</span>
         <input type="text" class="input_text" name="sem" id="sem" value="@Model.sem" />        
@@ -148,8 +77,13 @@ border-right:1px double #FF0033;
             <input type="text" class="input_text" name="elec2Id" id="elec2Name" value="@Model.Elective2Name" />        
         </label>
     }
+ </div>   
+
+ <div class="clearfloat">&nbsp;</div> 
+ <br /><br />
+ <div class="fltrt">
     <label>        
         <input type="button" name="button" id="button" value="Continue" onclick="Redirect()" class="submitButton"/>        
     </label>
-</div>
+   </div>
 </form>
