@@ -16,13 +16,13 @@
 </script>
  
 }
-
-<h1 style="color:White"> Verify your details :</h1>
-<div class="clearfloat">&nbsp;</div>
 <br /><br />
+<h3 style="color:rgb(53, 113, 190)"> Please make any necessary changes :</h3>
+<div class="clearfloat">&nbsp;</div>
+<br />
 <form action = "" name="studentDetails" id="studentDetails" method="post" enctype="multipart/form-data">
 
-<div class="box fltlft">
+<div class="box fltlft" style="width:45%">
     
     <label>
         <span>USN</span>
@@ -49,32 +49,32 @@
     </label>
 </div>
 
-<div class="box fltlft">
+<div class="box fltrt" style="width:45%">
     
     <label>
         <span>Semester</span>
-        <input type="text" class="input_text" name="sem" id="sem" value="@Model.sem" />        
+        <input type="text" class="input_text" name="sem" id="sem" value="@Model.sem" readonly="readonly"/>        
     </label>
     <label>
         <span>Section</span>
-        <input type="text" class="input_text" name="sec" id="sec" value="@Model.Sec" />        
+        <input type="text" class="input_text" name="sec" id="sec" value="@Model.Sec" readonly="readonly"/>        
     </label>
     <label>
         <span>Department</span>
-        <input type="text" class="input_text" name="deptId" id="deptId" value="@Model.DeptID" />        
+        <input type="text" class="input_text" name="deptId" id="deptId" value="@Model.DeptID" readonly="readonly"/>        
     </label>
     @if(Model.Elective1Name != null)
     {
         <label>
             <span>Elective 1</span>
-            <input type="text" class="input_text" name="elec1Id" id="elec1Name" value="@Model.Elective1Name" />        
+            <input type="text" class="input_text" name="elec1Id" id="elec1Name" value="@Model.Elective1Name" readonly="readonly" />        
         </label>
     }
     @if(Model.Elective2Name != null)
     {
         <label>
             <span>Elective 2</span>
-            <input type="text" class="input_text" name="elec2Id" id="elec2Name" value="@Model.Elective2Name" />        
+            <input type="text" class="input_text" name="elec2Id" id="elec2Name" value="@Model.Elective2Name" readonly="readonly"/>        
         </label>
     }
  </div>   
