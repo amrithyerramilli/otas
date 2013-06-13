@@ -2,4 +2,20 @@
     ViewBag.Title = "Incorrect";
 }
 
-<h2>Incorrect</h2>
+@section Head{
+
+<script type="text/javascript">
+    function home() {
+        Url.Action("Login/Login");
+    }
+</script>
+}
+<br />
+<br />
+<h2 style="color:rgb(53, 113, 190)">Incorrect Password.(Check Case Sensitivity )</h2><br />
+<div class="fltrt">
+<form action="">
+<input class="submitButton" type="button" onclick="window.location.href='@Url.Action("Login/Login","Main")'" id="back" value="Back" />
+</form>
+</div>
+
