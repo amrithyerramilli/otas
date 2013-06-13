@@ -151,27 +151,49 @@ namespace OTAS2WebApp.Areas.Student.Controllers
         {
             List<TeacherSummary> summary = (List<TeacherSummary>)Session["summary"];
             ValidS student = (ValidS)Session["student"];
-            int? counter = student.Counter;
-            if (counter == null)
+            
+            if (Session["counter"] == null)
             {
                 throw new Exception("Database error");
             }
-            // Send user to thank you page if counter is equal to the count of subjects given feedback for
-            if (counter != null)
+            int counter = Convert.ToInt32(Session["counter"]);
+            // Send user to thank you page if counter is equal to the count of subjects given feedback for           
+            if (summary.Count == counter)
             {
-                if (summary.Count == counter)
-                {
-                    return View("");
-                }
-            }
-            return View("Ratings/Rating",summary[counter.Value]);
+                return View("");
+            }            
+                        
+            return View("Ratings/Rating",summary[counter]);
         }
-        public ActionResult Rating(FormCollection form)
+        public ActionResult Rating(string comboID, string options)
         {
-            RID_TABLE teacher = new RID_TABLE();
+            RID_TABLE record = new RID_TABLE();
             RID_TABLERepository RID_TABLE = new RID_TABLERepository();
-            RID_TABLE.InsertRecord(teacher);
-            return View();
+            ValidSRepository validSRepository = new ValidSRepository();
+            ValidS student = (ValidS)Session["student"];
+            List<string> arrayOfOptions = options.Split(',').ToList();
+
+            //Initialising Record
+            record.RID = comboID;
+            record.A1 = Convert.ToInt32(arrayOfOptions[0]);
+            record.A2 = Convert.ToInt32(arrayOfOptions[1]);
+            record.A3 = Convert.ToInt32(arrayOfOptions[2]);
+            record.A4 = Convert.ToInt32(arrayOfOptions[3]);
+            record.A5 = Convert.ToInt32(arrayOfOptions[4]);
+            record.A6 = Convert.ToInt32(arrayOfOptions[5]);
+            record.A7 = Convert.ToInt32(arrayOfOptions[6]);
+            record.A8 = Convert.ToInt32(arrayOfOptions[7]);
+            record.A9 = Convert.ToInt32(arrayOfOptions[8]);
+            record.A10 = Convert.ToInt32(arrayOfOptions[9]);
+            // Inserting record in DB
+            RID_TABLE.InsertRecord(record);
+            // Update session counter
+            Session["counter"] = Convert.ToInt32(Session["counter"]) + 1;
+            student.Counter = Convert.ToInt32(Session["counter"]);
+            // Update record in DB
+            validSRepository.UpdateCounter(student);
+            return RedirectToAction("RedirectRating");
+            
         }
 
     }
