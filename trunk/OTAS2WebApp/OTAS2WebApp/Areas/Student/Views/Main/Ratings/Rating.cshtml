@@ -13,22 +13,71 @@
        var sel = "";
 
        function getVals() {
-
+           var flag = false;
+           var unAnswered = "";
            sel = "";
+           if ($("input[name='q1']:checked").val() == null) {
+               flag = true;
+               unAnswered = unAnswered + "1,";
+           }
            sel = sel + $("input[name='q1']:checked").val() + ",";
+           if ($("input[name='q2']:checked").val() == null) {
+               flag = true;
+               unAnswered = unAnswered + "2,";
+           }
            sel = sel + $("input[name='q2']:checked").val() + ",";
+           
+           if ($("input[name='q3']:checked").val() == null) {
+               flag = true;
+               unAnswered = unAnswered + "3,";
+           }
            sel = sel + $("input[name='q3']:checked").val() + ",";
+
+           if ($("input[name='q4']:checked").val() == null) {
+               flag = true;
+               unAnswered = unAnswered + "4,";
+           } 
            sel = sel + $("input[name='q4']:checked").val() + ",";
+           if ($("input[name='q5']:checked").val() == null) {
+               flag = true;
+               unAnswered = unAnswered + "5,";
+           }
            sel = sel + $("input[name='q5']:checked").val() + ",";
-           sel = sel + $("input[name='q6']:checked").val() + ",";
+
+           if ($("input[name='q6']:checked").val() == null) {
+               flag = true;
+               unAnswered = unAnswered + "6,";
+           }
+            sel = sel + $("input[name='q6']:checked").val() + ",";
+            if ($("input[name='q7']:checked").val() == null) {
+                flag = true;
+                unAnswered = unAnswered + "7,";
+            }
            sel = sel + $("input[name='q7']:checked").val() + ",";
+           if ($("input[name='q8']:checked").val() == null) {
+               flag = true;
+               unAnswered = unAnswered + "8,";
+           }
            sel = sel + $("input[name='q8']:checked").val() + ",";
+           if ($("input[name='q9']:checked").val() == null) {
+               flag = true;
+               unAnswered = unAnswered + "9,";
+           }
            sel = sel + $("input[name='q9']:checked").val() + ",";
+           if ($("input[name='q10']:checked").val() == null) {
+               flag = true;
+               unAnswered = unAnswered + "10,";
+           }
            sel = sel + $("input[name='q10']:checked").val();
 
+           if (flag == true)
+               alert("Questions : " + unAnswered + " have not been answered ! ");
+           else
+           {
            var url = '@Html.Raw(Url.Action("Rating", new { comboID = comboID, options = "sel" }))';
            url = url.replace("sel", sel);
            document.location.href = url;
+           }
        }
 
 
