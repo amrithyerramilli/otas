@@ -158,17 +158,19 @@ namespace OTAS2WebApp.Areas.Student.Controllers
             
             if (Session["counter"] == null)
             {
-                throw new Exception("Database error");
+                //Redirect to error page here
+                return View("Misc/Error");
             }
             int counter = Convert.ToInt32(Session["counter"]);
             // Send user to thank you page if counter is equal to the count of subjects given feedback for           
             if (summary.Count == counter)
             {
-                return View("Misc/Thankyou");
+                return View("Misc/ThankYou");
             }            
                         
             return View("Ratings/Rating",summary[counter]);
         }
+        
         public ActionResult Rating(string comboID, string options)
         {
             RID_TABLE record = new RID_TABLE();
@@ -197,7 +199,23 @@ namespace OTAS2WebApp.Areas.Student.Controllers
             // Update record in DB
             validSRepository.UpdateCounter(student);
             return RedirectToAction("RedirectRating");
+
+        }
+        public ActionResult ThankYou(string valueFeedback, string textFeedback)
+        {
+            Feedback record = new Feedback();
+            FeedbackRepository Feedback = new FeedbackRepository();
             
+            
+
+            //Initialising Record
+            record.Value = valueFeedback;
+            record.Suggestion = textFeedback;
+            // Inserting record in DB
+            Feedback.InsertRecord(record);
+           
+            return View("Login/Login");
+
         }
 
     }

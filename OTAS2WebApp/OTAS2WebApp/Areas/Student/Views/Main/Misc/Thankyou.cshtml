@@ -2,15 +2,69 @@
     ViewBag.Title = "Thankyou";
 }
 
-<h2 style="color:rgb(53, 113, 190)">Thank You</h2>
+@section Head{
+ <script type="text/javascript">
+       var sel = "";
+       var fd = "";
+       function getVals() {
+           var flag = false;
+           sel = "";
+           fd = document.getElementById('feedback').value;
+           if ($("input[name='q1']:checked").val() == null) {
+               flag = true;
+               
+           }
+           sel = sel + $("input[name='q1']:checked").val();
+           if (flag == true)
+               alert(" Seriously ? Go back and give feedback ! ");
+           else {
+               var url = '@Html.Raw(Url.Action("ThankYou", new { valueFeedback = "sel", textFeedback = "fd" }))';
+               url = url.replace("sel", sel).replace("fd", fd);
+
+               document.location.href = url;
+           }
+
+           }
+  </script>
+
+}
+
+<br /><br />
+<h3 style="color:rgb(53, 113, 190)">Thank You ! Your Feedback has been successfully recorded!</h3>
+
+<hr />
 
 <form action = "" name="studentDetails" id="studentDetails" method="post" enctype="multipart/form-data">
+<br />
 
-<div class="box fltlft" style="width:45%">
-    
-    <label>
-        <span>USN</span>
-        <input type="text" class="input_text" name="USN" id="USN" value="@Model.USN" readonly="readonly" />        
-    </label>
+<div>
+<div class="fltlft" style="width:57%">
 
+<div class = "radio" style="width:100%">
+    <p style="color:Red;font-size:150%;">Overall Product Experience ?</p>
+    <div class="options">
+        <label ><input type="radio" id="f1" name="q1" value="4" />Like a Boss!</label>
+        <label ><input type="radio" id="f2" name="q1" value="3" />Close Enough</label>
+        <label ><input type="radio" id="f3" name="q1" value="2" />Onethara ( ಒಂತರಾ )</label>
+        <label ><input type="radio" id="f4" name="q1" value="1" />Go Home, OTAS</label>
     </div>
+</div>
+<br />
+<div class="box" style="width:100%" >
+    <p style="color:Red;font-size:150%;">What do you think of our product ? </p>
+    <textarea class="input_text" style="width:94%" name="feedback" id="feedback" rows="5" cols="50" > </textarea>
+</div>
+ 
+ <div class="fltrt">
+<input class="submitButton" type="button" onclick="getVals()" id="send" value="Submit" />
+</div>   
+</div>
+
+<div class="fltrt" style="width:40%;" >
+   <p style="color:Red;font-size:150%;">Le Dev Team !</p><br /> 
+ <img src="@Url.Content("~/Content/devteam.jpg")" alt="Dev Team Was Here" name="devteam" width="100%" height="100%" id="devteam" style=" display:block;" />
+
+</div>
+</div>
+<div class="clearfloat">&nbsp;</div>
+</form>
