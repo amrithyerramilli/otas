@@ -16,6 +16,10 @@ namespace OTAS2WebApp.Areas.Student.Controllers
 
         public ActionResult Login()
         {
+            //Removes all session vairables
+            Session.Clear();
+            Session.Abandon();
+            Session.RemoveAll();        
             return View("Login/Login");
         }
 
@@ -58,7 +62,7 @@ namespace OTAS2WebApp.Areas.Student.Controllers
             ValidSRepository valids = new ValidSRepository();
             var stud = (from i in valids.GetAllValidS()
                         where i.PassGen == password
-                        where i.USN == username
+                        where i.USN == username.ToUpper()
                         select i).ToList();
             // Add an "incorrect password" view
             if (stud.Count == 0)
