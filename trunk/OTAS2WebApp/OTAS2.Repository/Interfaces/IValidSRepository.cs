@@ -9,5 +9,6 @@ namespace OTAS2.Repository.Interfaces
     public interface IValidSRepository
     {
         IList<ValidS> GetAllValidS();
+        void UpdateCounter(ValidS record);
     }
 }
