@@ -288,8 +288,12 @@ border-right:1px double #FF0033;
     font-size:150%;
     padding-top:10px;
     padding-bottom:5px;
-    color:red;
+    color:rgb(53, 113, 190);
     
+}
+.radio input
+{
+    padding-left:10px;
 }
 .Odd
 {
