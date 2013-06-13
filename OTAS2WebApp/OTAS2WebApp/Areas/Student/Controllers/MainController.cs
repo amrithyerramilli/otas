@@ -74,7 +74,7 @@ namespace OTAS2WebApp.Areas.Student.Controllers
             // If student already given feedback, send them to thank you page.
             if (stud[0].FG == true)
             {
-                return View();
+                return View("Misc/Thankyou");
             }
             
             return RedirectToAction("Details");
@@ -164,7 +164,7 @@ namespace OTAS2WebApp.Areas.Student.Controllers
             // Send user to thank you page if counter is equal to the count of subjects given feedback for           
             if (summary.Count == counter)
             {
-                return View("");
+                return View("Misc/Thankyou");
             }            
                         
             return View("Ratings/Rating",summary[counter]);
