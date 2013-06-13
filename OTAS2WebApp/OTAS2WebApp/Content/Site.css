@@ -1,9 +1,10 @@
+/*
 body
 {
     font-size: .85em;
     font-family: "Trebuchet MS", Verdana, Helvetica, Sans-Serif;
     color: #232323;
-    background-color: #fff;
+    background-color: #031429;
 }
 
 header,
@@ -12,6 +13,7 @@ nav,
 section {
     display: block;
 }
+*/
 
 /* Styles for basic forms
 -----------------------------------------------------------*/
@@ -78,7 +80,9 @@ textarea
 
 body
 {
-     font:100% normal Arial, Helvetica, sans-serif; background:#031429;}
+     font:100% normal Arial, Helvetica, sans-serif;
+     background:black;
+}
      
 form,input,select,textarea
 {margin:0; padding:0; color:#ffffff;}
@@ -97,31 +101,38 @@ form,input,select,textarea
 {
     text-align: center;
     color: red;
-    font-size: 24pt;
-	
+    font-size: 24pt;	
 }
-
 
 th
 {
     text-align: center;
-    color: #031429;
+    color: rgb(53, 113, 190);
      font-size: 18pt;
     padding:10px 10px;
 
-background:#7996B2;
+background:black;
 /*border-bottom: 1px double white;
 border-top: 1px double #171717;
 border-left:1px double #333333;
 border-right:1px double #333333;
 */
 }
+
+/*
 .even
 {
     background:#333333;
 }
+*/
+
 div.clear {
     clear:both;
+}
+
+.rightborder
+{
+    border-right:1px solid white;
 }
 /*table 
 {
@@ -171,10 +182,11 @@ border-right:1px double #333333;*/
 div.box {
 margin:0 auto;
 width:500px;
-background:#031429;
+/*background:#031429;*/
+background:black;
 position:relative;
 
-border:1px solid #031429;
+border:1px solid black;
 }
 
 div.box h1 { 
@@ -182,16 +194,16 @@ color:#ffffff;
 font-size:18px;
 text-transform:uppercase;
 padding:5px 0 5px 5px;
-border-bottom:1px solid #031429;
-border-top:1px solid #031429; 
+border-bottom:1px solid black;
+border-top:1px solid black; 
 }
 
 div.box label {
 width:100%;
 display: block;
-background:#031429;
-border-top:1px solid #031429;
-border-bottom:1px solid #031429;
+background:black;
+border-top:1px solid black;
+border-bottom:1px solid black;
 padding:10px 0 10px 0;
 }
 
@@ -248,16 +260,55 @@ border-right:1px double #FF0033;
     display:block;
     background:#262626;
     color:white;
+    padding:"2px 2px 4px 2px";
+    
+}
+.options
+{
+    display:block;
+    border-top:1.5px solid gray;
+    padding-top:10px;
 }
 
+.out
+{
+    border:1.5px solid gray;
+    padding:20px 20px 20px 20px;
+}
+.radio label
+{
+    display:block;
+    padding-left:50px;
+    padding-bottom:10px;
+    
+}
+.radio p
+{
+    background:black;
+    font-size:150%;
+    padding-top:10px;
+    padding-bottom:5px;
+    color:red;
+    
+}
 .Odd
 {
-    background:#031429;
+    /*background:#031429;*/
     border-bottom:"1px white";
     width:100%;
+    padding:"2px 2px 4px 2px";
     
 }
 hr
 {
-    background-color:#031429;
+    background-color:black;
     color:#031429;
+}
+
+br
+{
+    display:block;
+    background:#262626;
+    color:white;
+}
+    
