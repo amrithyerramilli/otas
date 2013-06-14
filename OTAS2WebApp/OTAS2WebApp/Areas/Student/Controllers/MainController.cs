@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using OTAS2.Repository.Repository;
 using OTAS2.Domain.Entities;
+using OTAS2WebApp.Common;
 
 
 namespace OTAS2WebApp.Areas.Student.Controllers
@@ -85,7 +86,7 @@ namespace OTAS2WebApp.Areas.Student.Controllers
             IList<TeacherSummary> summary = new List<TeacherSummary>();
             try
             {
-                var usn = form["USN"];
+                var usn = form["USN"];                
                 var sem = Convert.ToInt32(form["sem"]);
                 var sec = form["sec"];
                 var deptId = form["deptId"];
@@ -100,6 +101,8 @@ namespace OTAS2WebApp.Areas.Student.Controllers
                 SubCompRepository subComb = new SubCompRepository();
                 SubjectRepository subjects = new SubjectRepository();
                 TeacherInfoRepository teachers = new TeacherInfoRepository();
+                // Edit details of students in DB
+                Helper.AddEditedDetails(form, loggedInStudent);
                 summary = (from i in subComb.GetAllSubComb()
                                                  join o in teachers.GetAllTeacherInfo()
                                                  on
@@ -146,9 +149,9 @@ namespace OTAS2WebApp.Areas.Student.Controllers
             }
             catch (Exception ex)
             {
-                
+                return View("Misc/Error");
             }
-
+            
             return View("Details/Summary", summary);
         }
         public ActionResult RedirectRating()
