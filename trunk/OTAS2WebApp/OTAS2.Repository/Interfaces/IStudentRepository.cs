@@ -9,5 +9,6 @@ namespace OTAS2.Repository.Interfaces
     public interface IStudentRepository
     {
         IList<Students> GetAllStudents();
+        void UpdateStudent(Students record);
     }
 }
