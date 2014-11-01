@@ -221,5 +221,11 @@ namespace OTAS2WebApp.Areas.Student.Controllers
 
         }
 
+        public ActionResult Report()
+        {
+
+            return View("Report/Report");
+        }
+
     }
 }
