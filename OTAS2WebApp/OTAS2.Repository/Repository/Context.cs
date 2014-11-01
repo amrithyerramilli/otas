@@ -19,7 +19,7 @@ namespace OTAS2.Repository.Repository
         public DbSet<Feedback> Feedback { get; set; }
         public Context()
             : base("Xerxes")
-        {
+        {            
         }
     }
 }
